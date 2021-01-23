@@ -1,9 +1,9 @@
-<img src="docs/icon.png" width= 130px align="right" />
+<img src="icon.png" width= 130px align="right" />
 
 # Schoolovy
 > Auto-like all Schoology posts & comments
 
-A Python script to automatically like all posts & comments in your [Schoology](https://www.schoology.com/) feed (20 posts max).
+Share some love using this Python script to to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (20 posts max).
 
 ## Installation
 Clone from GitHub:
