@@ -1,9 +1,9 @@
 <img src="icon.png" width= 130px align="right" />
 
 # Schoolovy
-> Auto-like all Schoology posts & comments
+> Auto-like Schoology posts & comments
 
-Share some love using this Python script to to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (20 posts max).
+Share some love using this Python script to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (20 posts max).
 
 ## Installation
 Clone from GitHub:
@@ -17,7 +17,7 @@ Install required libraries:
 pip install -r requirements.txt
 ```
 ## Configuration
-Retreive your API key and secret from ``https://[school_url].com/api`` (E.g. ``https://harvard.schoology.com/api``) and add the ID & secret to the ``config.yaml`` included in the repository.
+Retreive your API key and secret from ``https://[school_url].com/api`` (e.g. ``https://harvard.schoology.com/api``) and add the ID & secret to the ``config.yaml`` included in the repository.
 
 **Mac**:
 ```bash
