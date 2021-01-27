@@ -3,7 +3,7 @@
 # Schoolovy
 > Auto-like Schoology posts & comments
 
-Share some love using this Python script to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (20 posts max).
+Share some love using this Python script to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (most recent 20 posts).
 
 ## Installation
 Clone from GitHub:
@@ -11,7 +11,12 @@ Clone from GitHub:
 ```bash
 git clone https://github.com/N-l1/schoolovy.git
 ```
-Install required libraries:
+
+```bash
+cd schoolovy
+```
+
+Install required Python libraries:
 
 ```bash
 pip install -r requirements.txt
@@ -31,7 +36,7 @@ Notepad config.yaml
 Make sure you have ```>= Python 3.6``` installed, then run the script with:
 
 ```bash
-python schoolovy.py
+python3 schoolovy.py
 ```
 
 The script should now indicate it has started by outputting:
