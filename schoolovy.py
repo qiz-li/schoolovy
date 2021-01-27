@@ -1,5 +1,5 @@
-import schoolopy
 import yaml
+import schoolopy
 
 
 def main():
@@ -24,28 +24,24 @@ def main():
             liked += 1
         except schoolopy.NoDifferenceError:
             pass
-        # If post is in a group
+        # Get comments if post is in a group
         if update.realm == "group":
-            # Go through the comments inside the group
-            for comment in sc.get_group_update_comments(update.id,
-                                                        update.group_id):
-                # Like each comment
-                try:
-                    sc.like(f'{update.id}/comment/{comment.id}')
-                    liked += 1
-                except schoolopy.NoDifferenceError:
-                    continue
-        # Else if post is  in a course
+            comments = sc.get_group_update_comments(update.id,
+                                                    update.group_id)
+        # Else get comments if post is in a course
         elif update.realm == "section":
-            # Go through the comments inside the course
-            for comment in sc.get_section_update_comments(update.id,
-                                                          update.section_id):
-                # Like each comment
-                try:
-                    sc.like(f'{update.id}/comment/{comment.id}')
-                    liked += 1
-                except schoolopy.NoDifferenceError:
-                    continue
+            comments = sc.get_section_update_comments(update.id,
+                                                      update.section_id)
+        else:
+            continue
+        # Go through the comments inside the group
+        for comment in comments:
+            # Like each comment
+            try:
+                sc.like_comment(update.id, comment.id)
+                liked += 1
+            except schoolopy.NoDifferenceError:
+                continue
     return liked
 
 
