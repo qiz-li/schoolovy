@@ -1,49 +1,52 @@
-<img src="icon.png" width= 130px align="right" />
+<img src="icon.png" width= 150px align="right" />
 
 # Schoolovy
-> Auto-like Schoology posts & comments
 
-Share some love using this Python script to automatically like *all posts & comments* in your [Schoology](https://www.schoology.com/) feed (most recent 20 posts).
+> A Schoology auto-liker
 
-## Installation
+Use this Python script to automatically like
+posts & comments in your [Schoology](https://www.schoology.com/) feed.
+
+## Install
+
 Clone from GitHub:
 
 ```bash
-git clone https://github.com/N-l1/schoolovy.git
+git clone https://github.com/qiz-li/schoolovy.git
 ```
 
 ```bash
 cd schoolovy
 ```
 
-Install required Python libraries:
+Install required Python dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
-## Configuration
-Retreive your API key and secret from ``https://[school_url].com/api`` (e.g. ``https://harvard.schoology.com/api``) and add the ID & secret to the ``config.yaml`` included in the repository.
 
-**Mac**:
-```bash
-open config.yaml
-```
-**Windows**:
-```powershell
-Notepad config.yaml
-```
+## Configure
+
+Open the `config.yaml` file and
+change the example key and secret to ones tied to your account.
+You can find them at `{school_schoology_url}.com/api`.
+
 ## Run
-Make sure you have ```>= Python 3.6``` installed, then run the script with:
+
+Make sure you have >= Python 3.6 installed, then run the script with:
+
+You can change the argument to the number of posts you want the script to check for.
+In this case, the script will check the most recent 20 posts.
+Out of the specified posts, ones that are not already liked will be auto-liked.
 
 ```bash
-python3 schoolovy.py
+python3 schoolovy.py 20
 ```
 
 The script should now indicate it has started by outputting:
 
 ```
-Sharing love...
-Liked 7 new posts
+Liking posts...
+---------------
+Liked 5 posts and 2 comments
 ```
-
-All posts in your feed should now be liked! You can like all new posts & comments by setting up a cron job to do this continuously.
