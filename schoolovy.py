@@ -11,13 +11,16 @@ def err(msg):
     exit(1)
 
 
-def main():
+def main(limit):
     """
     Likes all the posts & comments
     in your most recent feed (20 posts).
 
+    Args:
+        limit: How many posts to like.
+
     Returns:
-        Number of posts & comments that were newly liked.
+        A message of the number of posts & comments that were newly liked.
     """
     with open('config.yaml', 'r') as file:
         config = yaml.load(file, Loader=yaml.FullLoader)
@@ -26,12 +29,9 @@ def main():
     post_liked = 0
     comments_liked = 0
 
-    if len(sys.argv) != 2:
-        err("Only the 'limit' argument is allowed")
-
     # Set the number of posts to check
     try:
-        sc.limit = int(sys.argv[1])
+        sc.limit = int(limit)
     except ValueError:
         err("The 'limit' argument must be a number")
 
@@ -78,4 +78,9 @@ def main():
 
 
 if __name__ == "__main__":
-    print(main())
+    # Too many arguments are specified
+    if len(sys.argv) > 2:
+        err("Only the 'limit' argument is allowed")
+    # Default limit is 20
+    limit = 20 if len(sys.argv) == 1 else sys.argv[1]
+    print(main(limit))
