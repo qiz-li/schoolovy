@@ -55,8 +55,10 @@ def main(limit):
             try:
                 sc.like(update.id)
                 post_liked += 1
-            except schoolopy.NoDifferenceError:
-                pass
+            # KeyError is sometimes thrown randomly
+            # for apparently no reason.
+            except (schoolopy.NoDifferenceError, KeyError):
+                continue
 
         # Get comments if post is in a group
         if update.realm == "group":
@@ -79,7 +81,7 @@ def main(limit):
                 try:
                     sc.like_comment(update.id, comment.id)
                     comments_liked += 1
-                except schoolopy.NoDifferenceError:
+                except (schoolopy.NoDifferenceError, KeyError):
                     continue
 
     return ("---------------\n"
