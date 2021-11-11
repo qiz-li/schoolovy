@@ -46,19 +46,12 @@ def main(limit):
     # Go through all most recent 20 posts
     for update in updates:
 
-        # Check if post is in 'unlike_list'
-        if (int(update.id) not
-            in config.get('unlike_list').get('posts', []) and
-                int(update.uid) not in
-                config.get('unlike_list').get('users', [])):
-            # Like post
-            try:
-                sc.like(update.id)
-                post_liked += 1
-            # KeyError is sometimes thrown randomly
-            # for apparently no reason.
-            except (schoolopy.NoDifferenceError, KeyError):
-                continue
+        # Like post
+        try:
+            sc.like(update.id)
+            post_liked += 1
+        except schoolopy.NoDifferenceError:
+            pass
 
         # Get comments if post is in a group
         if update.realm == "group":
@@ -73,16 +66,12 @@ def main(limit):
 
         # Go through the comments inside the group
         for comment in comments:
-            # Check if comment is in 'unlike_list'
-            if (int(comment.id) not in
-                config.get('unlike_list').get('comments', []) and
-                    int(comment.uid) not in
-                    config.get('unlike_list').get('users', [])):
-                try:
-                    sc.like_comment(update.id, comment.id)
-                    comments_liked += 1
-                except (schoolopy.NoDifferenceError, KeyError):
-                    continue
+            # Like each comment
+            try:
+                sc.like_comment(update.id, comment.id)
+                comments_liked += 1
+            except schoolopy.NoDifferenceError:
+                continue
 
     return ("---------------\n"
             f"Liked {post_liked} posts and {comments_liked} comments")
