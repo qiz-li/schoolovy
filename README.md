@@ -35,13 +35,12 @@ You can find them at `{school_schoology_url}.com/api`.
 
 Make sure you have >= Python 3.6 installed, then run the script with:
 
-You can change the argument to the number of posts you want the script to check for.
-In this case, the script will check the most recent 20 posts.
-Out of the specified posts, ones that are not already liked will be auto-liked.
-
 ```bash
 python3 schoolovy.py 20
 ```
+
+You can change the argument to the number of posts you want the script to check for.
+For example, in the case above, the script will check the most recent 20 posts.
 
 The script should now indicate it has started by outputting:
 
