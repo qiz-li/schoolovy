@@ -33,7 +33,7 @@ You can find them at `{school_schoology_url}.com/api`.
 
 ## Run
 
-Make sure you have >= Python 3.6 installed, then run the script with:
+Make sure you have at least `Python 3.6` installed, then run the script with:
 
 ```bash
 python3 schoolovy.py 20
